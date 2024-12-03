@@ -21,7 +21,7 @@ class GoogleController extends Controller
         try {
 
             $googleUser = Socialite::driver('google')->user();
-            $user = User::where('google_id', $googleUser->id)->first();
+            $user = User::where('google_id', $googleUser->id)->firstOrCreate();
 
             if ($user) {
                 Auth::login($user);
