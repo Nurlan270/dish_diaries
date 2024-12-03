@@ -26,7 +26,3 @@
     php artisan migrate --force
     php artisan up
 @endtask
-
-@finished
-    @discord(env('ENVOY_DISCORD_WEBHOOK_URI'))
-@endfinished
