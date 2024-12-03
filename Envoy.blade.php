@@ -28,5 +28,5 @@
 @endtask
 
 @finished
-    @discord('https://discordapp.com/api/webhooks/1313193090328035378/KI4WGnh1dclMTL4KPlIQgySid-Vn_EODXADqj1o4vXExGNpBZZ2aSlRo2txIU47sCLqJ')
+    @discord(config('services.envoy.discord_webhook'))
 @endfinished
