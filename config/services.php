@@ -35,10 +35,6 @@ return [
         ],
     ],
 
-    'envoy' => [
-        'discord_webhook' => env('ENVOY_DISCORD_WEBHOOK_URI')
-    ],
-
     //      OAuth2
     'google' => [
         'client_id'     => env('GOOGLE_CLIENT_ID'),

@@ -28,5 +28,5 @@
 @endtask
 
 @finished
-    @discord(config('services.envoy.discord_webhook'))
+    @discord(env('ENVOY_DISCORD_WEBHOOK_URI'))
 @endfinished
