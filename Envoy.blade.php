@@ -23,6 +23,9 @@
 
 @task('proceed')
     cd /var/www/dish-diaries.nurlan.dev
+    @if($freshDb)
+        php artisan migrate:reset --force
+    @endif
     php artisan migrate --force
     php artisan up
 @endtask
