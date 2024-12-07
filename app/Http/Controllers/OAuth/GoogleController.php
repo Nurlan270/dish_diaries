@@ -29,7 +29,7 @@ class GoogleController extends Controller
             } else {
                 $newUser = User::updateOrCreate(['email' => $googleUser->email], [
                     'google_id' => $googleUser->id,
-                    'name'      => $googleUser->name,
+                    'username'  => $googleUser->name,
                     'password'  => bcrypt(Str::random(32)),
                 ]);
 
