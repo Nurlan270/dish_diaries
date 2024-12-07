@@ -101,20 +101,23 @@
 
                     {{-- Modal body --}}
                     <div class="p-4 md:p-5">
-                        <x-input-field type="email" name="email" label="Email"/>
+                        <form method="POST">
+                            <x-input-field type="email" name="email" label="Email"/>
 
-                        <x-input-field type="password" name="password" label="Password"/>
+                            <x-input-field type="password" name="password" label="Password"/>
 
-                        <div class="flex items-center justify-between flex-wrap">
-                            <button class="dark:text-white text-blue-600 text-sm underline">
-                                Forgot password?
-                            </button>
+                            <div class="flex items-center justify-between flex-wrap">
+                                <button class="dark:text-white text-blue-600 text-sm underline">
+                                    Forgot password?
+                                </button>
 
-                            <button
-                                class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm px-6 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
-                                Sign in
-                            </button>
-                        </div>
+                                <button
+                                    type="submit"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm px-6 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
+                                    Sign in
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -155,19 +158,8 @@
                     </div>
 
                     {{-- Modal body --}}
-                    <div class="p-4 md:p-5 flex flex-col justify-center">
-                        <x-input-field type="text" name="username" label="Username"/>
-
-                        <x-input-field type="email" name="email" label="Email"/>
-
-                        <x-input-field type="password" name="password" label="Password"/>
-
-                        <x-input-field type="password" name="password_confirmation" label="Password confirmation"/>
-
-                        <button
-                            class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
-                            Sign up
-                        </button>
+                    <div class="p-4 md:p-5">
+                        <livewire:register-form />
                     </div>
                 </div>
             </div>
