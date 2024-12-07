@@ -11,7 +11,7 @@ class ThemeToggler extends Component
     public function changeTheme(): string
     {
         return <<<'JS'
-            const currentTheme = localStorage.getItem('theme');
+            const currentTheme = localStorage.getItem('theme') || 'light';
             if (currentTheme === 'light') localStorage.setItem('theme', 'dark')
             else localStorage.setItem('theme', 'light')
             updateTheme();
