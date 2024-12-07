@@ -2,10 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use SocialiteProviders\Google\Provider as GoogleProvider;
-use SocialiteProviders\Manager\SocialiteWasCalled;
+use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Event::listen(function (SocialiteWasCalled $event) {
-            $event->extendSocialite('google', GoogleProvider::class);
+        Password::defaults(function () {
+           return Password::min(8)->uncompromised();
         });
     }
 }
