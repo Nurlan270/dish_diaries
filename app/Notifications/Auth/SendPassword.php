@@ -41,12 +41,14 @@ class SendPassword extends Notification implements ShouldQueue
         return (new MailMessage)
             ->success()
             ->subject('Welcome to ' . config('app.name') . '! Your Account is Ready')
-            ->markdown('notifications.send-password', [
-                'name'     => $notifiable->username,
-                'email'    => $notifiable->email,
-                'password' => $this->password,
-                'url'      => url('/'),
-            ]);
+            ->greeting('Dear ' . $notifiable->username . ',')
+            ->line('We’re thrilled to welcome you to **' . config('app.name') . '**, your personal space for discovering, sharing, and documenting culinary delights. Your account has been successfully created, and you’re just one step away from exploring our vibrant community of food lovers.')
+            ->action('Explore more!', url('/'))
+            ->line('---')
+            ->line('Below are your account credentials:')
+            ->line('- Email: ' . $notifiable->email)
+            ->line('- Password: ' . $this->password)
+            ->line('> **Note:** For your security, we recommend changing your password after logging in for the first time.');
     }
 
     /**
