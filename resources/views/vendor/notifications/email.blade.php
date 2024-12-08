@@ -39,7 +39,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards,')<br>
-{{ config('app.name') }}
+**Bon appétit,**<br>
+*{{ config('app.name') }} Team*
 @endif
 </x-mail::message>
