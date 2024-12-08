@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use function Laravel\Prompts\confirm;
 
-class SendPassword extends Notification implements ShouldQueue
+class SendPassword extends Notification
 {
     use Queueable;
 
@@ -19,8 +19,7 @@ class SendPassword extends Notification implements ShouldQueue
         public string $password
     )
     {
-        $this->onConnection('redis');
-        $this->onQueue('auth');
+        //
     }
 
     /**
