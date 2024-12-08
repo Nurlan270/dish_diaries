@@ -17,6 +17,7 @@
         "mckenziearts/blade-untitledui-icons": "^1.3",
         "php-flasher/flasher-notyf-laravel": "^2.1",
         "postare/blade-mdi": "^1.1",
+        "predis/predis": "^2.3",
         "socialiteproviders/google": "^4.1"
     },
     "require-dev": {
