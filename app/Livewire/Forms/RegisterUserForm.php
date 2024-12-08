@@ -26,7 +26,7 @@ class RegisterUserForm extends Form
         return [
             'username' => [
                 'required',
-                'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9._]*$/',
+                'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9._-]*$/',
                 'min:3',
                 'max:25',
             ],
@@ -45,7 +45,7 @@ class RegisterUserForm extends Form
     public function messages(): array
     {
         return [
-            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_" symbols are allowed.',
+            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_", "-" symbols are allowed.',
         ];
     }
 }
