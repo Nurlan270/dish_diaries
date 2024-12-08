@@ -10,7 +10,7 @@
     cd /var/www/dish-diaries.nurlan.dev
     php artisan down --refresh=10 --with-secret
     rm -rf ./package-lock.json
-    composer update
+    git reset --hard HEAD
     git pull
 @endtask
 
