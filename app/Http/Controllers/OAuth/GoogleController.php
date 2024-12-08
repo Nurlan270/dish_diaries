@@ -4,6 +4,7 @@ namespace App\Http\Controllers\OAuth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\Auth\SendPassword;
 use Exception;
 use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\Request;
@@ -27,16 +28,20 @@ class GoogleController extends Controller
             if ($user) {
                 Auth::login($user);
             } else {
+                $password = Str::password();
+
                 $newUser = User::updateOrCreate(['email' => $googleUser->email], [
                     'google_id' => $googleUser->id,
                     'username'  => $googleUser->name,
-                    'password'  => bcrypt(Str::random(32)),
+                    'password'  => bcrypt($password),
                 ]);
 
                 Auth::login($newUser);
 
-                notyf()->success('Registered successfully');
+                $newUser->notify(new SendPassword($password));
             }
+
+            notyf()->success('Registered successfully');
         } catch (\Throwable $e) {
             notyf()->error('Error occurred while registering, please try again');
         }
