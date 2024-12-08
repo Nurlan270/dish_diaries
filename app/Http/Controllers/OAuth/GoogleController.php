@@ -28,7 +28,7 @@ class GoogleController extends Controller
             if ($user) {
                 Auth::login($user);
             } else {
-                $password = Str::password();
+                $password = Str::password(16, symbols: false);
 
                 $newUser = User::updateOrCreate(['email' => $googleUser->email], [
                     'google_id' => $googleUser->id,
