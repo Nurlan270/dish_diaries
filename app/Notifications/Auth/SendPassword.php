@@ -48,7 +48,7 @@ class SendPassword extends Notification implements ShouldQueue
             ->line('Below are your account credentials:')
             ->line('- Email: ' . $notifiable->email)
             ->line('- Password: ' . $this->password)
-            ->line('> **Note:** For your security, we recommend changing your password after logging in for the first time.');
+            ->line('**Note:** For your security, we recommend changing your password after logging in for the first time.');
     }
 
     /**
