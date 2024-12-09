@@ -1,14 +1,14 @@
 <form wire:submit="registerUser" method="POST" class="flex flex-col justify-center">
-    <x-input-field type="text" name="username" label="Username" required
+    <x-form.input-field type="text" name="username" label="Username" required
                    wire:model.live.debounce="form.username"/>
 
-    <x-input-field type="email" name="email" label="Email" required
+    <x-form.input-field type="email" name="email" label="Email" required
                    wire:model.live.debounce="form.email"/>
 
-    <x-input-field type="password" name="password" label="Password" required
+    <x-form.input-field type="password" name="password" label="Password" required
                    wire:model.live.debounce="form.password"/>
 
-    <x-input-field type="password" name="password_confirmation" label="Password confirmation" required
+    <x-form.input-field type="password" name="password_confirmation" label="Password confirmation" required
                    wire:model.live.debounce="form.password_confirmation"/>
 
     <button
