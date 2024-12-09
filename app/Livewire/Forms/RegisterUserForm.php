@@ -18,25 +18,32 @@ class RegisterUserForm extends Form
     #[Validate]
     public string $password;
 
-    #[Validate]
+    #[Validate(as: 'Password')]
     public string $password_confirmation;
 
     public function rules(): array
     {
         return [
-            'username' => [
+            'username'              => [
                 'required',
                 'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9._-]*$/',
                 'min:3',
                 'max:25',
             ],
-            'email'    => [
+            'email'                 => [
                 'required',
+                'lowercase',
                 'email',
+                'unique:users',
             ],
-            'password' => [
+            'password'              => [
                 'required',
                 'confirmed',
+                Password::defaults(),
+            ],
+            'password_confirmation' => [
+                'required',
+                'same:password',
                 Password::defaults(),
             ],
         ];
@@ -45,7 +52,7 @@ class RegisterUserForm extends Form
     public function messages(): array
     {
         return [
-            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_", "-" symbols are allowed.',
+            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_" and "-" symbols are allowed.',
         ];
     }
 }
