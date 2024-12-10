@@ -1,9 +1,9 @@
 <form wire:submit="loginUser" method="POST">
-    <x-form.input-field type="email" name="email" label="Email" wire:model.live.debounce="form.email"/>
+    <x-form.input-field type="email" name="email" label="Email" wire:model.live.debounce="form.email" required/>
 
-    <x-form.input-field type="password" name="password" label="Password" wire:model="form.password"/>
+    <x-form.input-field type="password" name="password" label="Password" wire:model="form.password" required/>
 
-    <x-form.checkbox text="Remember me" wire:model="form.remember" wire:click="$toggle('form.remember')" checked/>
+    <x-form.checkbox text="Remember me" wire:model="form.remember" wire:click="$toggle('form.remember')"/>
 
     <div class="flex items-center justify-between flex-wrap">
         <button class="dark:text-white text-blue-600 text-sm underline">
