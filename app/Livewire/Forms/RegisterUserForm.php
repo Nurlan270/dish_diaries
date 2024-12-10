@@ -53,6 +53,7 @@ class RegisterUserForm extends Form
     {
         return [
             'username.regex' => 'Username must contain at least 1 letter. Only ".", "_" and "-" symbols are allowed.',
+            'email.unique' => 'Email is already registered.',
         ];
     }
 }
