@@ -27,6 +27,8 @@ class GoogleController extends Controller
 
             if ($user) {
                 Auth::login($user);
+
+                notyf()->success('Logged in successfully');
             } else {
                 $password = Str::password(16, symbols: false);
 
@@ -39,9 +41,9 @@ class GoogleController extends Controller
                 Auth::login($newUser);
 
                 $newUser->notify(new SendPassword($password));
-            }
 
-            notyf()->success('Registered successfully');
+                notyf()->success('Registered successfully');
+            }
         } catch (\Throwable $e) {
             notyf()->error('Error occurred while registering, please try again');
         }
