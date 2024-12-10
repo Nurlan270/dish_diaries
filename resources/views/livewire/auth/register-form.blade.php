@@ -13,7 +13,6 @@
 
     <button
         wire:target="form,registerUser"
-        wire:loading.attr="disabled"
         wire:loading.class="dark:opacity-70 opacity-80"
         wire:loading.class.remove="hover:bg-blue-800 dark:hover:bg-blue-700"
         type="submit"
