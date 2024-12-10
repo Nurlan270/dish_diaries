@@ -9,16 +9,16 @@ use Livewire\Form;
 
 class RegisterUserForm extends Form
 {
-    #[Validate]
+    #[Validate(as: 'Username')]
     public string $username;
 
-    #[Validate]
+    #[Validate(as: 'Email')]
     public string $email;
 
-    #[Validate]
+    #[Validate(as: 'Password')]
     public string $password;
 
-    #[Validate(as: 'Password')]
+    #[Validate(as: 'Password confirmation')]
     public string $password_confirmation;
 
     public function rules(): array

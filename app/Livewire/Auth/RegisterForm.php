@@ -5,6 +5,7 @@ namespace App\Livewire\Auth;
 use App\Livewire\Forms\RegisterUserForm;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -21,10 +22,12 @@ class RegisterForm extends Component
             Auth::login($user);
 
             notyf()->success('Registered successfully');
-        } catch (\Throwable $e) {
-            notyf()->error('Error occurred while registering, please try again');
-        }
 
-        return redirect()->intended();
+            return redirect()->intended();
+        } catch (ValidationException $e) {
+            notyf()->error('Registration failed. Please check the information provided');
+        } catch (\Throwable $e) {
+            notyf()->error('An error occurred while registering, please try again');
+        }
     }
 }
