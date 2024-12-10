@@ -14,8 +14,12 @@ class LoginForm extends Component
     public function loginUser()
     {
         try {
-            if (Auth::attempt($this->form->validate(), $this->form->only('remember'))) {
+            if (Auth::attempt($this->form->validate(), (bool) $this->form->only('remember'))) {
                 notyf()->success('Logged in successfully');
+
+                return redirect()->intended();
+            } else {
+                notyf()->error('Login failed. Email or Password is incorrect');
             }
         } catch (ValidationException $e) {
             notyf()->error('Login failed. Please check the information provided');

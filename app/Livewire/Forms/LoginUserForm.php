@@ -13,7 +13,7 @@ class LoginUserForm extends Form
     #[Validate(as: 'Password')]
     public string $password;
 
-    public bool $remember;
+    public bool $remember = true;
 
     public function rules()
     {
@@ -21,7 +21,6 @@ class LoginUserForm extends Form
             'email'    => [
                 'required',
                 'email',
-                'exists:users'
             ],
             'password' => [
                 'required',
