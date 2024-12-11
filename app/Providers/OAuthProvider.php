@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use SocialiteProviders\GitHub\Provider as GithubProvider;
 use SocialiteProviders\Google\Provider as GoogleProvider;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
@@ -24,6 +25,10 @@ class OAuthProvider extends ServiceProvider
     {
         Event::listen(function (SocialiteWasCalled $event) {
             $event->extendSocialite('google', GoogleProvider::class);
+        });
+
+        Event::listen(function (SocialiteWasCalled $event) {
+            $event->extendSocialite('github', GithubProvider::class);
         });
     }
 }
