@@ -40,7 +40,7 @@
                             Sign in with Google
                         </button>
 
-                        <button onclick="window.location.href='{{ route('auth.google') }}'"
+                        <button onclick="window.location.href='{{ route('auth.github') }}'"
                                 class="dark:bg-gray-500 dark:text-black dark:border-none bg-white hover:bg-gray-100 transition-colors text-black text-sm border-2 px-5 py-3 w-full sm:w-fit rounded-2xl font-bold cursor-pointer flex items-center justify-center gap-x-3">
                             <x-icons.github/>
                             Sign in with GitHub
