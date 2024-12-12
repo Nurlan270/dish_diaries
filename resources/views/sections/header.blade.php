@@ -2,8 +2,11 @@
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"/>
+            <a href="{{ config('app.url') }}" class="flex items-center rtl:space-x-reverse">
+                <img src="{{ asset('media/logos/logo-white.svg') }}" class="h-10 hidden dark:block"
+                     alt="{{ config('app.name') }} Logo"/>
+                <img src="{{ asset('media/logos/logo-black.svg') }}" class="h-10 block dark:hidden"
+                     alt="{{ config('app.name') }} Logo"/>
                 <span
                     class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden xs:block">{{ config('app.name') }}</span>
             </a>
@@ -33,7 +36,7 @@
                            placeholder="Search...">
                 </div>
                 <livewire:theme-toggler/>
-                <x-auth-modal />
+                <x-auth-modal/>
 
                 <button data-collapse-toggle="navbar-search" type="button"
                         class="inline-flex items-center ms-2 p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700"
