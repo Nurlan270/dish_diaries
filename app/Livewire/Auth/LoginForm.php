@@ -22,9 +22,9 @@ class LoginForm extends Component
                 notyf()->error('Login failed. Email or Password is incorrect');
             }
         } catch (ValidationException $e) {
-            notyf()->error('Login failed. Please check the information provided');
+            notyf()->error('Validation failed. Please check the information provided');
         } catch (\Throwable $e) {
-            notyf()->error('Error occurred while logging, please try again');
+            notyf()->error('Logging failed, please try again');
         }
     }
 }

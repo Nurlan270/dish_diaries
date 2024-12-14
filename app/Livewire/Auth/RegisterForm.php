@@ -25,9 +25,9 @@ class RegisterForm extends Component
 
             return redirect()->intended();
         } catch (ValidationException $e) {
-            notyf()->error('Registration failed. Please check the information provided');
+            notyf()->error('Validation failed. Please check the information provided');
         } catch (\Throwable $e) {
-            notyf()->error('An error occurred while registering, please try again');
+            notyf()->error('Registration failed, please try again');
         }
     }
 }

@@ -3,15 +3,12 @@
 namespace App\Livewire\Forms;
 
 use Illuminate\Validation\Rules\Password;
-use Livewire\Attributes\Rule;
+use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class RegisterUserForm extends Form
+class ResetPasswordForm extends Form
 {
-    #[Validate(as: 'Username')]
-    public string $username;
-
     #[Validate(as: 'Email')]
     public string $email;
 
@@ -24,17 +21,10 @@ class RegisterUserForm extends Form
     public function rules(): array
     {
         return [
-            'username'              => [
-                'required',
-                'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9._-]*$/',
-                'min:3',
-                'max:25',
-            ],
             'email'                 => [
                 'required',
                 'lowercase',
                 'email',
-                'unique:users',
             ],
             'password'              => [
                 'required',
@@ -45,14 +35,6 @@ class RegisterUserForm extends Form
                 'required',
                 Password::defaults(),
             ],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_" and "-" symbols are allowed.',
-            'email.unique' => 'Email is already registered.',
         ];
     }
 }

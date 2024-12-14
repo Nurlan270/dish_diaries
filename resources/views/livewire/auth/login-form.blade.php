@@ -1,23 +1,21 @@
 <form wire:submit="loginUser" method="POST">
-    <x-form.input-field type="email" name="email" label="Email" wire:model.live.debounce="form.email" required/>
+    <x-form.input-field type="email" name="form.email" label="Email" wire:model.live.debounce="form.email" required/>
 
-    <x-form.input-field type="password" name="password" label="Password" wire:model="form.password" required/>
+    <x-form.input-field type="password" name="form.password" label="Password" wire:model="form.password" required/>
 
     <x-form.checkbox text="Remember me" wire:model="form.remember" wire:click="$toggle('form.remember')"/>
 
     <div class="flex items-center justify-between flex-wrap">
-        <button class="dark:text-white text-blue-600 text-sm underline">
+        <button
+            data-modal-hide="login-form-modal"
+            data-modal-target="send-reset-link-modal"
+            data-modal-toggle="send-reset-link-modal"
+            class="dark:text-white text-blue-600 text-sm underline">
             Forgot password?
         </button>
 
-        <button
-            wire:target="form,loginUser"
-            wire:loading.class="dark:opacity-70 opacity-80"
-            wire:loading.class.remove="hover:bg-blue-800 dark:hover:bg-blue-700"
-            type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm px-6 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 flex items-center justify-center">
-            <x-loader wire:target="form,loginUser"/>
-            <p wire:loading.remove>Sign in</p>
-        </button>
+        <x-form.button text="Sign in" targets="form,loginUser"
+                       loading-add-classes="dark:opacity-70 opacity-80"
+                       loading-remove-classes="hover:bg-blue-800 dark:hover:bg-blue-700"/>
     </div>
 </form>
