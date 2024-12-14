@@ -7,6 +7,7 @@
 
     <div class="flex items-center justify-between flex-wrap">
         <button
+            type="button"
             data-modal-hide="login-form-modal"
             data-modal-target="send-reset-link-modal"
             data-modal-toggle="send-reset-link-modal"
