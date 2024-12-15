@@ -44,7 +44,7 @@
                             class="flex items-center justify-center text-sm md:me-0"
                             type="button">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-9 h-9 rounded-full" src="{{ Storage::url('avatars/'.Auth::user()->avatar) }}"
+                        <img class="w-9 h-9 rounded-full" src="{{ getAvatarURI() }}"
                              alt="User avatar">
                     </button>
 

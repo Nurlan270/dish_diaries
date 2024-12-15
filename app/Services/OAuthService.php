@@ -23,12 +23,9 @@ final class OAuthService
             } else {
                 $password = Str::password(16, symbols: false);
 
-                $avatar = file_get_contents($oauthUser->getAvatar());
-                $avatarName = $oauthUser->getId().'.jpg';
-                \Storage::drive('avatars')->put($avatarName, $avatar);
-
                 $newUser = User::create([
-                    'avatar'   => $avatarName,
+                    'oauth_id' => $oauthUser->id,
+                    'avatar'   => $oauthUser->avatar,
                     'username' => $oauthUser->name,
                     'email'    => $oauthUser->email,
                     'password' => bcrypt($password),
