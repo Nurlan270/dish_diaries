@@ -18,11 +18,12 @@ class RegisterForm extends Component
     {
         try {
             $avatarName = Str::uuid7().'.jpg';
-            \Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
 
             $user = User::create(array_merge(
                 $this->form->validate(), ['avatar' => $avatarName]
             ));
+
+            \Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
 
             Auth::login($user);
 
