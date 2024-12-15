@@ -24,6 +24,7 @@ final class OAuthService
                 $password = Str::password(16, symbols: false);
 
                 $newUser = User::create([
+                    'avatar'   => $oauthUser->avatar,
                     'username' => $oauthUser->name,
                     'email'    => $oauthUser->email,
                     'password' => bcrypt($password),
