@@ -5,7 +5,9 @@ namespace App\Livewire\Auth;
 use App\Livewire\Forms\RegisterUserForm;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Laravolt\Avatar\Avatar;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -15,9 +17,12 @@ class RegisterForm extends Component
     public function registerUser()
     {
         try {
-            $user = User::create(
-                $this->form->validate()
-            );
+            $avatarName = Str::uuid7().'.jpg';
+            \Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
+
+            $user = User::create(array_merge(
+                $this->form->validate(), ['avatar' => $avatarName]
+            ));
 
             Auth::login($user);
 
