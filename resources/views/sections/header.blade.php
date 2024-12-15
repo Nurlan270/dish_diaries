@@ -35,7 +35,46 @@
                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
                            placeholder="Search...">
                 </div>
+
                 <livewire:theme-toggler/>
+
+                {{--        Profile        --}}
+                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
+                        class="flex items-center justify-center text-sm md:me-0"
+                        type="button">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-9 h-9 rounded-full" src="{{ Storage::url('avatars/'.Auth::user()->avatar) }}" alt="user photo">
+                </button>
+
+                <!-- Dropdown menu -->
+                <div id="dropdownAvatar"
+                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                    <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                        <div class="font-bold">{{ Auth::user()->username }}</div>
+                        <div class="font-medium text-xs truncate">{{ Auth::user()->email }}</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                        aria-labelledby="dropdownUserAvatarButton">
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                        </li>
+                    </ul>
+                    <div class="py-2">
+                        <a href="#"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                            out</a>
+                    </div>
+                </div>
+
                 <x-auth-modal/>
 
                 <button data-collapse-toggle="navbar-search" type="button"
