@@ -71,9 +71,9 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <a href="#"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</a>
+                            <form id="logout" action="{{ route('auth.logout') }}" method="POST">@csrf</form>
+                            <button type="submit" form="logout"
+                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white w-full">Log out</button>
                         </div>
                     </div>
                 @endauth

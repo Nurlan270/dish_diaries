@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\OAuth\GitHubController;
-use App\Http\Controllers\OAuth\GoogleController;
-use App\Livewire\Auth\ResetPassword;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\OAuth\GitHubController;
+use App\Http\Controllers\Auth\OAuth\GoogleController;
 
 Route::middleware('guest')->group(function () {
     /*     OAuth2    */
@@ -19,5 +19,9 @@ Route::middleware('guest')->group(function () {
     });
 });
 
+Route::post('logout', LogoutController::class)
+    ->middleware('auth')->name('auth.logout');
+
 Route::view('/reset-password/{token}', 'pages.main')
     ->middleware('guest')->name('password.reset');
+
