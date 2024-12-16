@@ -23,7 +23,7 @@ class RegisterForm extends Component
                 $this->form->validate(), ['avatar' => $avatarName]
             ));
 
-            Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
+            \Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
 
             Auth::login($user);
 
