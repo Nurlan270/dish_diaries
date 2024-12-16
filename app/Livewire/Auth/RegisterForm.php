@@ -5,6 +5,7 @@ namespace App\Livewire\Auth;
 use App\Livewire\Forms\RegisterUserForm;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Laravolt\Avatar\Avatar;
@@ -16,14 +17,17 @@ class RegisterForm extends Component
 
     public function registerUser()
     {
+        $avatar = new Avatar();
+
         try {
-            $avatarName = Str::uuid7().'.jpg';
+            $avatarName = Str::uuid7() . '.jpg';
 
             $user = User::create(array_merge(
                 $this->form->validate(), ['avatar' => $avatarName]
             ));
 
-            \Avatar::create($this->form->username)->save('storage/avatars/'.$avatarName);
+            $avatar->create($this->form->username)
+                ->save('storage/avatars/' . $avatarName);
 
             Auth::login($user);
 
@@ -34,6 +38,7 @@ class RegisterForm extends Component
             notyf()->error('Validation failed. Please check the information provided');
         } catch (\Throwable $e) {
             notyf()->error('Registration failed, please try again');
+            Log::error($e->getMessage());
         }
     }
 }
