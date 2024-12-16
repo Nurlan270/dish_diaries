@@ -18,6 +18,7 @@ class User extends Authenticatable implements CanResetPassword, HasLocalePrefere
      * @var array<int, string>
      */
     protected $fillable = [
+        'oauth_id',
         'avatar',
         'username',
         'email',
