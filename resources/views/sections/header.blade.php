@@ -59,21 +59,26 @@
                             aria-labelledby="dropdownUserAvatarButton">
                             <li>
                                 <a href="#"
-                                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex items-center gap-x-3">
+                                    <x-fas-user class="size-4"/>
+                                    Profile
+                                </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex items-center gap-x-3">
+                                    <x-akar-reciept class="size-4"/>
+                                    My recipes
+                                </a>
                             </li>
                         </ul>
                         <div class="py-2">
                             <form id="logout" action="{{ route('auth.logout') }}" method="POST">@csrf</form>
                             <button type="submit" form="logout"
-                               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white w-full">Log out</button>
+                               class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white w-full flex items-center gap-x-3">
+                                <x-solar-logout-2-outline class="size-4"/>
+                                Log out
+                            </button>
                         </div>
                     </div>
                 @endauth

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff09957a16da3347651843408665b322",
+    "content-hash": "36ae176f2184fad7650298592c744ea8",
     "packages": [
         {
             "name": "andreiio/blade-iconoir",
@@ -353,6 +353,78 @@
             "time": "2024-02-09T16:56:22+00:00"
         },
         {
+            "name": "codeat3/blade-akar-icons",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-akar-icons.git",
+                "reference": "1b5a192f7f696caaa463a9d05534eb3f47a5f823"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-akar-icons/zipball/1b5a192f7f696caaa463a9d05534eb3f47a5f823",
+                "reference": "1b5a192f7f696caaa463a9d05534eb3f47a5f823",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.6",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "codeat3/blade-icon-generation-helpers": "^0.7",
+                "codeat3/phpcs-styles": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.0|^10.5|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeAkarIcons\\BladeAkarIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeAkarIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of Akar Icons in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-akar-icons",
+            "keywords": [
+                "akar",
+                "blade",
+                "icons",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-akar-icons/issues",
+                "source": "https://github.com/codeat3/blade-akar-icons/tree/2.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/swapnilsarwe",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-27T13:48:53+00:00"
+        },
+        {
             "name": "codeat3/blade-phosphor-icons",
             "version": "2.2.0",
             "source": {
@@ -422,6 +494,79 @@
                 }
             ],
             "time": "2024-04-08T19:02:17+00:00"
+        },
+        {
+            "name": "codeat3/blade-solar-icons",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeat3/blade-solar-icons.git",
+                "reference": "a6df3c4951591fe313399ebbbc6ac671c22ac631"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeat3/blade-solar-icons/zipball/a6df3c4951591fe313399ebbbc6ac671c22ac631",
+                "reference": "a6df3c4951591fe313399ebbbc6ac671c22ac631",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.1",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "codeat3/blade-icon-generation-helpers": "^0.8",
+                "codeat3/phpcs-styles": "^1.0",
+                "iconify/json": "^2.2",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.0|^10.5|^11.0",
+                "symfony/process": "^5.0|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Codeat3\\BladeSolarIcons\\BladeSolarIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Codeat3\\BladeSolarIcons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swapnil Sarwe",
+                    "homepage": "https://swapnilsarwe.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "homepage": "https://driesvints.com"
+                }
+            ],
+            "description": "A package to easily make use of \"Solar Icons\" in your Laravel Blade views.",
+            "homepage": "https://github.com/codeat3/blade-solar-icons",
+            "keywords": [
+                "Solar Icons",
+                "blade",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/codeat3/blade-solar-icons/issues",
+                "source": "https://github.com/codeat3/blade-solar-icons/tree/1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/swapnilsarwe",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-06-07T07:44:26+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -3267,6 +3412,66 @@
                 }
             ],
             "time": "2024-10-15T16:15:16+00:00"
+        },
+        {
+            "name": "owenvoke/blade-fontawesome",
+            "version": "v2.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owenvoke/blade-fontawesome.git",
+                "reference": "eaac6c31336b2667fdb1f4fd66b49181124a6ec4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owenvoke/blade-fontawesome/zipball/eaac6c31336b2667fdb1f4fd66b49181124a6ec4",
+                "reference": "eaac6c31336b2667fdb1f4fd66b49181124a6ec4",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.5",
+                "illuminate/support": "^10.34|^11.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.12|^9.0",
+                "pestphp/pest": "^2.26",
+                "phpstan/phpstan": "^1.10",
+                "symfony/var-dumper": "^6.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OwenVoke\\BladeFontAwesome\\BladeFontAwesomeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OwenVoke\\BladeFontAwesome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A package to easily make use of Font Awesome in your Laravel Blade views",
+            "support": {
+                "issues": "https://github.com/owenvoke/blade-fontawesome/issues",
+                "source": "https://github.com/owenvoke/blade-fontawesome/tree/v2.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://ecologi.com/owenvoke?gift-trees",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/owenvoke",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-11-25T09:18:49+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",

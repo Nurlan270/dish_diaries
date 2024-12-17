@@ -15,10 +15,8 @@ class RegisterForm extends Component
 {
     public RegisterUserForm $form;
 
-    public function registerUser()
+    public function registerUser(Avatar $avatar)
     {
-        $avatar = new Avatar();
-
         try {
             $avatarName = Str::uuid7() . '.jpg';
 
