@@ -4,6 +4,7 @@ namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\LoginUserForm;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
@@ -25,6 +26,7 @@ class LoginForm extends Component
             notyf()->error('Validation failed. Please check the information provided');
         } catch (\Throwable $e) {
             notyf()->error('Logging failed, please try again');
+            Log::error($e->getMessage());
         }
     }
 }
