@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\User;
 use App\Notifications\Auth\SendPassword;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -47,6 +48,7 @@ final class OAuthService
     {
         if (Str::isUuid($user->avatar)) {
             $user->update(['avatar' => $oauthUser->avatar]);
+            Storage::disk('avatars')->delete($user->avatar);
         }
     }
 }
