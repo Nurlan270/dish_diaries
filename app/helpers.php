@@ -6,7 +6,7 @@
 if (! function_exists('getAvatarURI')) {
     function getAvatarURI()
     {
-        return !empty(Auth::user()->oauth_id)
+        return ! Str::isUuid(Auth::user()->avatar)
             ? Auth::user()->avatar
             : Storage::url('avatars/'.Auth::user()->avatar);
     }

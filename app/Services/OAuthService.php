@@ -17,6 +17,8 @@ final class OAuthService
             $user = User::where('email', $oauthUser->email)->first();
 
             if ($user) {
+                $this->setAvatar($user, $oauthUser);
+
                 Auth::login($user);
 
                 notyf()->success('Logged in successfully');
@@ -24,7 +26,6 @@ final class OAuthService
                 $password = Str::password(16, symbols: false);
 
                 $newUser = User::create([
-                    'oauth_id' => $oauthUser->id,
                     'avatar'   => $oauthUser->avatar,
                     'username' => $oauthUser->name,
                     'email'    => $oauthUser->email,
@@ -39,6 +40,13 @@ final class OAuthService
             }
         } catch (\Throwable $e) {
             notyf()->error('Error occurred while authenticating, please try again');
+        }
+    }
+
+    protected function setAvatar(User $user, $oauthUser): void
+    {
+        if (Str::isUuid($user->avatar)) {
+            $user->update(['avatar' => $oauthUser->avatar]);
         }
     }
 }
