@@ -46,7 +46,9 @@ final class OAuthService
 
     protected function setAvatar(User $user, $oauthUser): void
     {
-        if (Str::isUuid($user->avatar)) {
+        if (Str::isUuid(
+            preg_replace('/\..*$/', '', $user->avatar)
+        )) {
             $user->update(['avatar' => $oauthUser->avatar]);
             Storage::disk('avatars')->delete($user->avatar);
         }
