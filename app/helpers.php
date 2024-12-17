@@ -6,7 +6,9 @@
 if (! function_exists('getAvatarURI')) {
     function getAvatarURI()
     {
-        return ! Str::isUuid(Auth::user()->avatar)
+        return ! Str::isUuid(
+            preg_replace('/\..*$/', '', Auth::user()->avatar)
+        )
             ? Auth::user()->avatar
             : Storage::url('avatars/'.Auth::user()->avatar);
     }
