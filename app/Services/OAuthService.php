@@ -49,8 +49,8 @@ final class OAuthService
         if (Str::isUuid(
             preg_replace('/\..*$/', '', $user->avatar)
         )) {
-            $user->update(['avatar' => $oauthUser->avatar]);
             Storage::disk('avatars')->delete($user->avatar);
+            $user->update(['avatar' => $oauthUser->avatar]);
         }
     }
 }
