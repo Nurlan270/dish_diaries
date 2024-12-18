@@ -44,7 +44,7 @@
                             class="flex items-center justify-center text-sm md:me-0"
                             type="button">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-9 h-9 rounded-full" src="{{ getAvatarURI() }}"
+                        <img class="w-9 h-9 rounded-full" src="{{ getAvatarURI(Auth::user()) }}"
                              alt="User avatar">
                     </button>
 
@@ -59,14 +59,14 @@
                             aria-labelledby="dropdownUserAvatarButton">
                             <li>
                                 <a href="#"
-                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex items-center gap-x-3">
+                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-medium flex items-center gap-x-3">
                                     <x-fas-user class="size-4"/>
                                     Profile
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex items-center gap-x-3">
+                                   class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-medium flex items-center gap-x-3">
                                     <x-akar-reciept class="size-4"/>
                                     My recipes
                                 </a>
@@ -75,7 +75,7 @@
                         <div class="py-2">
                             <form id="logout" action="{{ route('auth.logout') }}" method="POST">@csrf</form>
                             <button type="submit" form="logout"
-                               class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white w-full flex items-center gap-x-3">
+                               class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white font-medium w-full flex items-center gap-x-3">
                                 <x-solar-logout-2-outline class="size-4"/>
                                 Log out
                             </button>
