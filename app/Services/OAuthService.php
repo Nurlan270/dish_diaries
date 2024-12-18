@@ -44,12 +44,9 @@ final class OAuthService
         }
     }
 
-    protected function setAvatar(User $user, $oauthUser): void
+    private function setAvatar(User $user, $oauthUser): void
     {
-        if (Str::isUuid(
-            preg_replace('/\..*$/', '', $user->avatar)
-        )) {
-            Storage::disk('avatars')->delete($user->avatar);
+        if (preg_match('#https:\/\/ui-avatars\.com#', $user->avatar)) {
             $user->update(['avatar' => $oauthUser->avatar]);
         }
     }
