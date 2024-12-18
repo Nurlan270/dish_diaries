@@ -8,24 +8,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Laravolt\Avatar\Avatar;
 use Livewire\Component;
 
 class RegisterForm extends Component
 {
     public RegisterUserForm $form;
 
-    public function registerUser(Avatar $avatar)
+    public function registerUser()
     {
         try {
-            $avatarName = Str::uuid7() . '.jpg';
+            $avatar = 'https://ui-avatars.com/api/?name='.urlencode($this->form->username).'&background=random';
 
             $user = User::create(array_merge(
-                $this->form->validate(), ['avatar' => $avatarName]
+                $this->form->validate(), ['avatar' => $avatar]
             ));
-
-            $avatar->create($this->form->username)
-                ->save('storage/avatars/' . $avatarName);
 
             Auth::login($user);
 
