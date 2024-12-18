@@ -1,15 +1,17 @@
 <?php
 
+use App\Models\User;
+
 /**
  * Get actual URI for user's avatar
  */
 if (! function_exists('getAvatarURI')) {
-    function getAvatarURI()
+    function getAvatarURI(User $user)
     {
         return ! Str::isUuid(
-            preg_replace('/\..*$/', '', Auth::user()->avatar)
+            preg_replace('/\..*$/', '', $user->avatar)
         )
-            ? Auth::user()->avatar
-            : Storage::url('avatars/'.Auth::user()->avatar);
+            ? $user->avatar
+            : Storage::url('avatars/'.$user->avatar);
     }
 }
