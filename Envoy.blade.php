@@ -16,7 +16,7 @@
 
 @task('install-dependencies')
     cd /var/www/dish-diaries.nurlan.dev
-    composer install --no-dev
+    composer install --no-dev -o --no-interaction --ansi
     npm install
     npm run build
 @endtask
