@@ -9,16 +9,16 @@ use Livewire\Form;
 
 class RegisterUserForm extends Form
 {
-    #[Validate(as: 'Username')]
+    #[Validate]
     public string $username;
 
-    #[Validate(as: 'Email')]
+    #[Validate]
     public string $email;
 
-    #[Validate(as: 'Password')]
+    #[Validate]
     public string $password;
 
-    #[Validate(as: 'Password confirmation')]
+    #[Validate]
     public string $password_confirmation;
 
     public function rules(): array
@@ -26,7 +26,7 @@ class RegisterUserForm extends Form
         return [
             'username'              => [
                 'required',
-                'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9._-]*$/',
+                'regex:/^.*\p{L}.*$/',
                 'min:3',
                 'max:25',
             ],
@@ -45,14 +45,6 @@ class RegisterUserForm extends Form
                 'required',
                 Password::defaults(),
             ],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'username.regex' => 'Username must contain at least 1 letter. Only ".", "_" and "-" symbols are allowed.',
-            'email.unique' => 'Email is already registered.',
         ];
     }
 }

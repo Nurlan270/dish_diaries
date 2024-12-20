@@ -2,9 +2,9 @@
     <button
         data-modal-target="authentication-modal"
         data-modal-toggle="authentication-modal"
-        class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
+        class="text-white bg-blue-700 hover:bg-blue-800 transition-colors font-medium rounded-lg text-sm ms-2 px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700"
         type="button">
-        Get started
+        {{ __('auth.get-started') }}
     </button>
 
     {{-- Auth modal --}}
@@ -16,7 +16,7 @@
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex space-x-2 items-center">
                         <x-phosphor-keyhole-duotone class="w-7 h-auto"/>
-                        <span>Sign in to our platform</span>
+                        <span>{{ __('auth.auth-title') }}</span>
                     </h3>
                     <button type="button"
                             class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -27,7 +27,7 @@
                                   stroke-width="2"
                                   d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
-                        <span class="sr-only">Close modal</span>
+                        <span class="sr-only">{{ __('auth.close-modal') }}</span>
                     </button>
                 </div>
 
@@ -36,19 +36,21 @@
                     <button onclick="window.location.href='{{ route('auth.google') }}'"
                             class="dark:bg-black dark:text-white dark:border-none bg-white hover:bg-gray-100 transition-colors text-gray-600 text-sm border-2 px-5 py-3 w-full sm:w-fit rounded-2xl font-bold cursor-pointer flex items-center justify-center gap-x-3">
                         <x-icons.google/>
-                        Sign in with Google
+                        {{ __('auth.sign-in-with', ['provider' => __('auth.provider.google')]) }}
                     </button>
 
                     <button onclick="window.location.href='{{ route('auth.github') }}'"
                             class="dark:bg-gray-500 dark:text-black dark:border-none bg-white hover:bg-gray-100 transition-colors text-black text-sm border-2 px-5 py-3 w-full sm:w-fit rounded-2xl font-bold cursor-pointer flex items-center justify-center gap-x-3">
                         <x-icons.github/>
-                        Sign in with GitHub
+                        {{ __('auth.sign-in-with', ['provider' => __('auth.provider.github')]) }}
                     </button>
 
                     <div class="inline-flex items-center justify-center w-full">
                         <hr class="w-64 h-px my-4 bg-gray-400 border-0 dark:bg-gray-400">
                         <span
-                            class="absolute px-3 font-medium text-sm text-gray-900 -translate-x-1/2 bg-white dark:bg-gray-700 left-1/2 dark:text-white">OR</span>
+                            class="absolute px-3 font-medium text-sm text-gray-900 -translate-x-1/2 bg-white dark:bg-gray-700 left-1/2 dark:text-white">
+                            {{ __('auth.or') }}
+                        </span>
                     </div>
 
                     <button
@@ -57,7 +59,7 @@
                         data-modal-toggle="login-form-modal"
                         class="dark:bg-blue-600 dark:text-white dark:border-none hover:bg-gray-100 transition-colors text-blue-600 text-sm border-2 px-5 py-3 w-full sm:w-fit rounded-2xl font-bold cursor-pointer flex items-center justify-center gap-x-3">
                         <x-ionicon-mail class="w-6 h-auto"/>
-                        Sign in with Email
+                        {{ __('auth.sign-in-with', ['provider' => __('auth.provider.email')]) }}
                     </button>
                 </div>
             </div>
@@ -73,7 +75,7 @@
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex space-x-2 items-center">
                         <x-phosphor-keyhole-duotone class="w-7 h-auto"/>
-                        <span>Sign in</span>
+                        <span>{{ __('auth.sign-in') }}</span>
                     </h3>
                     <div>
                         <button
@@ -81,7 +83,7 @@
                             data-modal-target="register-form-modal"
                             data-modal-toggle="register-form-modal"
                             class="me-3 underline inline-flex text-sm font-semibold gap-x-1 dark:text-white text-black">
-                            SIGN UP
+                            {{ __('auth.sign-up') }}
                             <x-untitledui-link-external-01 class="w-3.5 h-auto"/>
                         </button>
                         <button type="button"
@@ -93,7 +95,7 @@
                                       stroke-width="2"
                                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
-                            <span class="sr-only">Close modal</span>
+                            <span class="sr-only">{{ __('auth.close-modal') }}</span>
                         </button>
                     </div>
                 </div>
@@ -115,7 +117,7 @@
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex space-x-2 items-center">
                         <x-phosphor-keyhole-duotone class="w-7 h-auto"/>
-                        <span>Sign up</span>
+                        <span>{{ __('auth.sign-up') }}</span>
                     </h3>
                     <div>
                         <button
@@ -123,7 +125,7 @@
                             data-modal-target="login-form-modal"
                             data-modal-toggle="login-form-modal"
                             class="me-3 underline inline-flex text-sm font-semibold gap-x-1 dark:text-white text-black">
-                            SIGN IN
+                            {{ __('auth.sign-in') }}
                             <x-untitledui-link-external-01 class="w-3.5 h-auto"/>
                         </button>
                         <button type="button"
@@ -135,7 +137,7 @@
                                       stroke-width="2"
                                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
-                            <span class="sr-only">Close modal</span>
+                            <span class="sr-only">{{ __('auth.close-modal') }}</span>
                         </button>
                     </div>
                 </div>
@@ -157,7 +159,7 @@
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex space-x-2 items-center">
                         <x-phosphor-keyhole-duotone class="w-7 h-auto"/>
-                        <span>Reset password</span>
+                        <span>{{ __('auth.password.reset') }}</span>
                     </h3>
                     <div>
                         <button
@@ -165,7 +167,7 @@
                             data-modal-target="login-form-modal"
                             data-modal-toggle="login-form-modal"
                             class="me-3 underline inline-flex text-sm font-semibold gap-x-1 dark:text-white text-black">
-                            SIGN IN
+                            {{ __('auth.sign-in') }}
                             <x-untitledui-link-external-01 class="w-3.5 h-auto"/>
                         </button>
                         <button type="button"
@@ -177,7 +179,7 @@
                                       stroke-width="2"
                                       d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
-                            <span class="sr-only">Close modal</span>
+                            <span class="sr-only">{{ __('auth.close-modal') }}</span>
                         </button>
                     </div>
                 </div>
@@ -201,7 +203,7 @@
                         class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white flex space-x-2 items-center">
                             <x-phosphor-keyhole-duotone class="w-7 h-auto"/>
-                            <span>Reset password</span>
+                            <span>{{ __('auth.password.reset') }}</span>
                         </h3>
                         <div>
                             <button type="button"
@@ -215,7 +217,7 @@
                                           stroke-width="2"
                                           d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                                 </svg>
-                                <span class="sr-only">Close modal</span>
+                                <span class="sr-only">{{ __('auth.close-modal') }}</span>
                             </button>
                         </div>
                     </div>

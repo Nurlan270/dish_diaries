@@ -19,7 +19,7 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                     </svg>
-                    <span class="sr-only">Search</span>
+                    <span class="sr-only">{{ __('header.search') }}</span>
                 </button>
 
                 <div class="relative hidden md:block">
@@ -33,15 +33,16 @@
                     </div>
                     <input type="text" id="search-navbar"
                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                           placeholder="Search...">
+                           placeholder="{{ __('header.search') }}">
                 </div>
 
                 <livewire:theme-toggler/>
+                <x-locale-switcher/>
 
                 @auth
                     {{--        Profile        --}}
                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
-                            class="flex items-center justify-center text-sm md:me-0"
+                            class="flex items-center justify-center text-sm ms-2 md:me-0"
                             type="button">
                         <span class="sr-only">Open user menu</span>
                         <img class="w-9 h-9 rounded-full" src="{{ getAvatarURI(Auth::user()) }}"
@@ -61,14 +62,14 @@
                                 <a href="#"
                                    class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-medium flex items-center gap-x-3">
                                     <x-fas-user class="size-4"/>
-                                    Profile
+                                    {{ __('header.profile') }}
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
                                    class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-medium flex items-center gap-x-3">
                                     <x-akar-reciept class="size-4"/>
-                                    My recipes
+                                    {{ __('header.my-recipes') }}
                                 </a>
                             </li>
                         </ul>
@@ -77,7 +78,7 @@
                             <button type="submit" form="logout"
                                class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white font-medium w-full flex items-center gap-x-3">
                                 <x-solar-logout-2-outline class="size-4"/>
-                                Log out
+                                {{ __('auth.logout') }}
                             </button>
                         </div>
                     </div>
@@ -110,21 +111,21 @@
                     </div>
                     <input type="text" id="search-navbar"
                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                           placeholder="Search...">
+                           placeholder="{{ __('header.search') }}">
                 </div>
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <a href="#"
                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                           aria-current="page">Home</a>
+                           aria-current="page">{{ __('header.home') }}</a>
                     </li>
                     <li>
                         <a href="#"
-                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{ __('header.about') }}</a>
                     </li>
                     <li>
                         <a href="#"
-                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                           class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{ __('header.services') }}</a>
                     </li>
                 </ul>
             </div>

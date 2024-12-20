@@ -17,7 +17,7 @@ class RegisterForm extends Component
     public function registerUser()
     {
         try {
-            $avatar = 'https://ui-avatars.com/api/?name='.urlencode($this->form->username).'&background=random';
+            $avatar = 'https://ui-avatars.com/api/?name='.urlencode($this->form->username).'&bold=true&background=random';
 
             $user = User::create(array_merge(
                 $this->form->validate(), ['avatar' => $avatar]
