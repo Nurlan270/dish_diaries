@@ -24,7 +24,7 @@ Route::prefix(LaravelLocalization::setLocale())->group(function () {
     Route::post('logout', LogoutController::class)
         ->middleware('auth')->name('auth.logout');
 
-    Route::view('/reset/password/{token}', 'pages.main')
+    Route::view('/password/reset/{token}', 'pages.main')
         ->middleware('guest')->name('password.reset');
 });
 
