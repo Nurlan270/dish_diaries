@@ -15,9 +15,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
             'localizationRedirect'  => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+            'localize'              => \App\Http\Middleware\Localize::class,
         ]);
 
-        $middleware->web(['localeSessionRedirect', 'localizationRedirect']);
+        $middleware->web(['localeSessionRedirect', 'localizationRedirect', 'localize']);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
