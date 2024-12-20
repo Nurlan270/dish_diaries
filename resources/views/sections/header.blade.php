@@ -1,11 +1,11 @@
 <header>
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-2 sm:p-4">
             <a href="{{ config('app.url') }}" class="flex items-center rtl:space-x-reverse">
-                <img src="{{ asset('media/logos/logo-white.svg') }}" class="h-10 hidden dark:block"
+                <img src="{{ asset('media/logos/logo-white.svg') }}" class="h-8 sm:h-10 hidden dark:block"
                      alt="{{ config('app.name') }} Logo"/>
-                <img src="{{ asset('media/logos/logo-black.svg') }}" class="h-10 block dark:hidden"
+                <img src="{{ asset('media/logos/logo-black.svg') }}" class="h-8 sm:h-10 block dark:hidden"
                      alt="{{ config('app.name') }} Logo"/>
                 <span
                     class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden xs:block">{{ config('app.name') }}</span>
