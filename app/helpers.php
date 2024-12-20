@@ -15,3 +15,10 @@ if (! function_exists('getAvatarURI')) {
             : Storage::url('avatars/'.$user->avatar);
     }
 }
+
+if (! function_exists('getOppositeLocale')) {
+    function getOppositeLocale(): string
+    {
+        return App::currentLocale() === 'en' ? 'ru' : 'en';
+    }
+}
