@@ -5,7 +5,8 @@ use App\Http\Controllers\Auth\OAuth\GitHubController;
 use App\Http\Controllers\Auth\OAuth\GoogleController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest')
+    ->prefix(LaravelLocalization::setLocale())->group(function () {
     /*     OAuth2    */
     //  Google
     Route::controller(GoogleController::class)->group(function () {
