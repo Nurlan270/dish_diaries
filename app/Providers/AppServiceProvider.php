@@ -4,10 +4,8 @@ namespace App\Providers;
 
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
-use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         ResetPassword::createUrlUsing(function (User $user, string $token) {
-            return config('app.url').'/'.LaravelLocalization::setLocale().'/password/reset/?token='.$token;
+            return config('app.url').'/'.LaravelLocalization::setLocale().'/password/reset/'.$token;
         });
 
         Password::defaults(function () {

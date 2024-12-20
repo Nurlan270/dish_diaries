@@ -5,8 +5,7 @@ use App\Http\Controllers\Auth\OAuth\GitHubController;
 use App\Http\Controllers\Auth\OAuth\GoogleController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::middleware('guest')
-    ->prefix(LaravelLocalization::setLocale())->group(function () {
+Route::middleware('guest')->prefix(LaravelLocalization::setLocale())->group(function () {
     /*     OAuth2    */
     //  Google
     Route::controller(GoogleController::class)->group(function () {
@@ -21,10 +20,12 @@ Route::middleware('guest')
     });
 });
 
-Route::prefix(LaravelLocalization::setLocale())
-    ->post('logout', LogoutController::class)
-    ->middleware('auth')->name('auth.logout');
+Route::prefix(LaravelLocalization::setLocale())->group(function () {
+    Route::post('logout', LogoutController::class)
+        ->middleware('auth')->name('auth.logout');
 
-Route::view('/reset-password/{token}', 'pages.main')
-    ->middleware('guest')->name('password.reset');
+    Route::view('/reset/password/{token}', 'pages.main')
+        ->middleware('guest')->name('password.reset');
+});
+
 
