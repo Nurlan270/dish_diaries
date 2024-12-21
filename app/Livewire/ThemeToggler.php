@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class ThemeToggler extends Component
 {
+    public string $class = '';
+
     #[Js]
     public function changeTheme(): string
     {
