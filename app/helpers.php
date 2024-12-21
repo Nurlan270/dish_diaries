@@ -22,3 +22,12 @@ if (! function_exists('getOppositeLocale')) {
         return App::currentLocale() === 'en' ? 'ru' : 'en';
     }
 }
+
+if (! function_exists('markIfLocale')) {
+    function markIfLocale(string $locale): string
+    {
+        return App::currentLocale() === $locale
+            ? 'bg-gray-200 dark:bg-gray-600'
+            : 'dark:bg-gray-700';
+    }
+}
