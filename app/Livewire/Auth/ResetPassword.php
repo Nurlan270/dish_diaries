@@ -4,7 +4,6 @@ namespace App\Livewire\Auth;
 
 use App\Livewire\Forms\ResetPasswordForm;
 use App\Models\User;
-use App\Services\PasswordService;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -41,7 +40,7 @@ class ResetPassword extends Component
         );
 
         if ($status === Password::PASSWORD_RESET) {
-            notyf()->success('Password reset successfully');
+            notyf()->success(__('passwords.reset'));
 
             return redirect()->route('main');
         } else {

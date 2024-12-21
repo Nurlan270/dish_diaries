@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class SendResetLink extends Component
 {
-    #[Validate(['required', 'email'], as: 'Email')]
+    #[Validate(['required', 'email'])]
     public string $email;
 
     public function sendResetLink()
@@ -20,16 +20,16 @@ class SendResetLink extends Component
             $status = Password::sendResetLink(['email' => $this->email]);
 
             if ($status === Password::RESET_LINK_SENT) {
-                notyf()->success('Reset link sent to provided email, please check inbox or spam');
+                notyf()->success(__('notification.reset_link_sent'));
 
                 return redirect()->route('main');
             } else {
                 notyf()->error(__($status));
             }
         } catch (ValidationException $e) {
-            notyf()->error('Validation failed. Please check the information provided');
+            notyf()->error(__('notification.errors.validation'));
         } catch (\Throwable $e) {
-            notyf()->error('Error occurred, please try again');
+            notyf()->error(__('notification.errors.unknown'));
         }
     }
 }
