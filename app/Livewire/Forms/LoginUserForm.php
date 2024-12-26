@@ -7,10 +7,10 @@ use Livewire\Form;
 
 class LoginUserForm extends Form
 {
-    #[Validate(as: 'Email')]
+    #[Validate]
     public string $email;
 
-    #[Validate(as: 'Password')]
+    #[Validate]
     public string $password;
 
     public bool $remember = true;
