@@ -5,7 +5,7 @@
 
     <x-form.checkbox text="{{ __('auth.form.remember') }}" wire:model="form.remember" wire:click="$toggle('form.remember')"/>
 
-    <div class="flex items-center justify-between flex-wrap">
+    <div class="flex items-center justify-between flex-wrap mt-5">
         <button
             type="button"
             data-modal-hide="login-form-modal"
