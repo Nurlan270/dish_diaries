@@ -22,7 +22,7 @@
                     <span class="sr-only">{{ __('header.search') }}</span>
                 </button>
 
-                <div class="relative hidden md:block">
+                <div class="relative hidden md:block me-2">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -36,10 +36,30 @@
                            placeholder="{{ __('header.search') }}">
                 </div>
 
-                <livewire:theme-toggler/>
-                <x-locale-switcher/>
+                @guest
+                    <livewire:theme-toggler/>
+                    <x-locale-switcher/>
+                @endguest
 
                 @auth
+                    {{--       Add recipe Btn       --}}
+                    <button
+                        data-tooltip-target="create-recipe-tooltip"
+                        data-modal-target="create-recipe-modal"
+                        data-modal-toggle="create-recipe-modal"
+                        class="flex items-center justify-center text-sm text-white bg-blue-700 p-2 border border-blue-700 rounded-lg hover:bg-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:hover:bg-gray-800 dark:focus:ring-gray-700 dark:text-white transition-colors">
+                        <x-fas-plus class="size-4"/>
+                    </button>
+
+                    <div id="create-recipe-tooltip" role="tooltip"
+                         data-tooltip-placement="bottom"
+                         class="absolute z-50 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                        {{ __('recipe-modal.tooltip') }}
+                        <div class="tooltip-arrow" data-popper-arrow></div>
+                    </div>
+
+                    <livewire:create-recipe-modal/>
+
                     {{--        Profile        --}}
                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar"
                             class="flex items-center justify-center text-sm ms-2 md:me-0"
@@ -49,12 +69,39 @@
                              alt="User avatar">
                     </button>
 
-                    <!-- Dropdown menu -->
+                    {{-- Dropdown menu --}}
                     <div id="dropdownAvatar"
-                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-48 dark:bg-gray-700 dark:divide-gray-600">
                         <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
                             <div class="font-bold">{{ Auth::user()->username }}</div>
                             <div class="font-medium text-xs truncate">{{ Auth::user()->email }}</div>
+                        </div>
+                        <div class="flex p-2 items-center justify-between">
+                            <livewire:theme-toggler
+                                class="text-gray-500 border border-gray-300 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"/>
+
+                            <div class="flex gap-x-1">
+                                <form id="en-switcher" action="{{ route('locale.switch', ['locale' => 'en']) }}"
+                                      method="POST">@csrf</form>
+                                <form id="ru-switcher" action="{{ route('locale.switch', ['locale' => 'ru']) }}"
+                                      method="POST">@csrf</form>
+                                <button id="states-button"
+                                        class="flex-shrink-0 z-10 inline-flex items-center gap-x-1 py-2 px-2 text-sm font-medium text-center text-gray-500 border border-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 {{ markIfLocale('en') }}"
+                                        form="en-switcher"
+                                        type="submit">
+                                    <img class="size-5" src="{{ asset('media/svg/en_flag.svg') }}"
+                                         alt="Flag">
+                                    <p>EN</p>
+                                </button>
+                                <button id="states-button"
+                                        class="flex-shrink-0 z-10 inline-flex items-center gap-x-1 py-2 px-2 text-sm font-medium text-center text-gray-500 border border-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 {{ markIfLocale('ru') }}"
+                                        form="ru-switcher"
+                                        type="submit">
+                                    <img class="size-5" src="{{ asset('media/svg/ru_flag.svg') }}"
+                                         alt="Flag">
+                                    <p>RU</p>
+                                </button>
+                            </div>
                         </div>
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownUserAvatarButton">
@@ -74,9 +121,10 @@
                             </li>
                         </ul>
                         <div class="py-2">
-                            <form id="logout" action="{{ LaravelLocalization::localizeURL('/logout') }}" method="POST">@csrf</form>
+                            <form id="logout" action="{{ LaravelLocalization::localizeURL('/logout') }}"
+                                  method="POST">@csrf</form>
                             <button type="submit" form="logout"
-                               class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white font-medium w-full flex items-center gap-x-3">
+                                    class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white font-medium w-full flex items-center gap-x-3">
                                 <x-solar-logout-2-outline class="size-4"/>
                                 {{ __('auth.logout') }}
                             </button>
