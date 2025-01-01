@@ -10,7 +10,7 @@ return [
         'description' => 'Description',
         'ingredients' => 'Ingredients',
         'images'      => [
-            'title' => "Upload recipe's images",
+            'title' => 'Upload recipe images',
             'tips'  => 'PNG, JPG or JPEG (MAX. 10MB).',
         ],
     ],
