@@ -1,0 +1,64 @@
+/* General dark mode styles - QuillJS */
+html.dark .ql-toolbar {
+    background-color: #4B5563; /* Dark gray background */
+    border-color: #4B5563; /* Match the background */
+}
+
+.ql-toolbar {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ql-container {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+html.dark .ql-container {
+    border-color: #4B5563;
+}
+
+html.dark .ql-editor {
+    color: white;
+}
+
+html.dark .ql-editor.ql-blank::before {
+    color: #cccccc;
+    opacity: 1;
+}
+
+html.dark .ql-toolbar button {
+    color: #e0e0e0 !important; /* Button text color */
+}
+
+/* Target buttons with nested SVGs */
+html.dark .ql-toolbar button svg {
+    fill: #e0e0e0 !important; /* Ensure SVG icons inherit the color */
+    stroke: #e0e0e0 !important; /* For stroke-based SVGs */
+}
+
+/* Hover and active state styles */
+html.dark .ql-toolbar button:hover {
+    background-color: #333 !important;
+}
+
+html.dark .ql-toolbar button.ql-active {
+    background-color: #555 !important;
+    color: #fff !important;
+}
+
+/* Drop-down selectors (like font size, header) */
+html.dark .ql-picker-label,
+html.dark .ql-picker-item {
+    color: #e0e0e0 !important; /* Ensure drop-down items are visible */
+    background-color: #4B5563 !important; /* Match toolbar background */
+}
+
+html.dark .ql-picker-options {
+    background-color: #333 !important; /* Drop-down menu background */
+    border-color: #4B5563 !important;
+}
+
+html.dark .ql-stroke {
+    stroke: white;
+}
