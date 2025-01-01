@@ -3,7 +3,7 @@
     "type": "project",
     "description": "Your recipes, your legacy",
     "keywords": ["laravel", "framework", "dish", "diaries", "food", "meal", "recipe"],
-    "license": "MIT",a
+    "license": "MIT",
     "require": {
         "php": "^8.2",
         "andreiio/blade-iconoir": "^4.6",
