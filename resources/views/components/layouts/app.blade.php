@@ -7,6 +7,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    @stack('libs')
 
     <title>
         @if(Route::is('main') || empty($title))
@@ -18,5 +19,7 @@
 </head>
     <body>
         {{ $slot }}
+
+    @stack('scripts')
     </body>
 </html>
