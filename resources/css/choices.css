@@ -1,0 +1,111 @@
+/* General dark mode styles - ChoiceJS */
+html.dark .choices {
+    background-color: #4B5563 !important; /* Dark gray background */
+    border: 1px solid #4B5563 !important; /* Match the background */
+    border-radius: 8px !important; /* Rounded corners */
+    color: #e0e0e0 !important; /* Text color */
+    padding: 0 !important; /* Add padding for better spacing */
+}
+
+/* Input field inside Choices.js */
+html.dark .choices__inner {
+    background-color: #4B5563 !important; /* Inner container background */
+    border: none !important; /* Remove border */
+    border-radius: 8px !important; /* Match rounded corners */
+    color: white !important; /* Text color inside input */
+    padding: 8px !important; /* Add padding */
+}
+
+/* Placeholder text */
+html.dark .choices__placeholder {
+    color: #cccccc !important; /* Light gray placeholder text */
+    opacity: 1 !important; /* Ensure visibility */
+}
+
+/* Input search box for adding items */
+html.dark .choices__input {
+    background-color: transparent !important; /* Transparent background */
+    border: none !important; /* No border */
+    color: white !important; /* Input text color */
+    outline: none !important; /* Remove outline */
+    width: 100% !important; /* Full width input */
+    padding: 8px !important; /* Padding for buttons */
+}
+
+/* Remove default input focus styles */
+html.dark .choices__input:focus {
+    border-color: #4B5563 !important; /* Match border color on focus */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5) !important; /* Focus glow */
+}
+
+/* Dropdown list styles */
+html.dark .choices__list--dropdown {
+    background-color: #333 !important; /* Dropdown background */
+    border: 1px solid #4B5563 !important; /* Match container border */
+    border-radius: 8px !important; /* Rounded corners */
+    max-height: 200px !important; /* Set max height */
+    overflow-y: auto !important; /* Add scroll if too many items */
+    z-index: 1000 !important; /* Ensure dropdown is above other elements */
+}
+
+/* Dropdown items */
+html.dark .choices__list--dropdown .choices__item {
+    color: #e0e0e0 !important; /* Dropdown item text color */
+    background-color: transparent !important; /* Transparent by default */
+    padding: 8px !important; /* Padding for better spacing */
+    cursor: pointer !important; /* Pointer on hover */
+    border-bottom: 1px solid #4B5563 !important; /* Divider between items */
+}
+
+/* Hover state for dropdown items */
+html.dark .choices__list--dropdown .choices__item:hover {
+    background-color: #555 !important; /* Darken background on hover */
+    color: white !important; /* Text color on hover */
+}
+
+/* Highlighted state (selected) */
+html.dark .choices__list--dropdown .choices__item--highlighted {
+    background-color: #555 !important; /* Background for highlighted item */
+    color: white !important; /* Text color */
+}
+
+/* Add choice notice (e.g., "Press Enter to add") */
+html.dark .choices__list--dropdown .choices__item--choice.is-highlighted {
+    background-color: #444 !important; /* Darker background for the notice */
+    color: white !important; /* White text */
+    font-style: italic !important; /* Italicize the notice */
+    padding: 8px !important; /* Padding to make it more readable */
+}
+
+/* Buttons for removing items */
+html.dark .choices__button {
+    background-color: #333 !important; /* Button background */
+    color: #e0e0e0 !important; /* Button text color */
+    border: none !important; /* Remove button border */
+    padding: 6px 10px !important; /* Padding for buttons */
+    border-radius: 4px !important; /* Rounded button corners */
+    cursor: pointer !important; /* Pointer on hover */
+}
+
+/* Remove item button hover effect */
+html.dark .choices__button:hover {
+    background-color: #555 !important; /* Darker background on hover */
+    color: #fff !important; /* White text */
+}
+
+/* Remove SVG icons color */
+html.dark .choices__button svg {
+    fill: #e0e0e0 !important; /* Ensure SVG icons are visible */
+    stroke: #e0e0e0 !important; /* For stroke-based icons */
+}
+
+/* Remove active states for the dropdown and items */
+html.dark .choices__list--dropdown {
+    display: block !important; /* Ensure dropdown is shown when active */
+}
+
+html.dark .choices__input--cloned {
+    background-color: #4B5563 !important; /* Background of the cloned input */
+    border-radius: 8px !important; /* Rounded corners */
+    padding: 8px !important; /* Padding for better input spacing */
+}
