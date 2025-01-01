@@ -8,9 +8,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 require 'auth.php';
 
 Route::prefix(LaravelLocalization::setLocale())->group(function () {
-    Livewire::setUpdateRoute(function ($handle) {
-        return Route::post('/livewire/update', $handle);
-    });
+    Livewire::setUpdateRoute(fn ($handle) => Route::post('/livewire/update', $handle));
 
     Route::view('/', 'pages.main')->name('main');
 
